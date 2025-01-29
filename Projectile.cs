@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 5f; // Speed of the projectile
-    private Vector3 direction = Vector3.up; // Move upwards by default
-    public System.Action destroyed; // Event to notify destruction
+    public float speed = 5f; //speed of the projectile
+    private Vector3 direction = Vector3.up; //move up by default
+    public System.Action destroyed; //notify destruction
 
     void Update()
     {
-        // Move the projectile upwards
+        //move projectile upwards
         transform.position += direction * speed * Time.deltaTime;
     }
 
@@ -24,20 +24,17 @@ public class Projectile : MonoBehaviour
                 enemyManager.EnemyDefeated();
             }
 
-            Destroy(other.gameObject); // Destroy enemy
+            Destroy(other.gameObject); //destroy enemy
         }
 
-        if (other.CompareTag("Boundary"))
-        {
-            Debug.Log("Projectile hit the boundary! Destroying.");
-        }
+        
 
-        // Ensure that destroyed.Invoke() is called before the projectile is destroyed
+        
         if (destroyed != null)
         {
             destroyed.Invoke();
         }
 
-        Destroy(gameObject); // Destroy the projectile
+        Destroy(gameObject); //destroy the projectile
     }
 }

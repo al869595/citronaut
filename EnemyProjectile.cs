@@ -18,7 +18,6 @@ public class EnemyProjectile : MonoBehaviour
         //check if the missile hits the player
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player Hit!");
             other.GetComponent<PlayerController>().RespawnPlayer(); //call respawn function
         }
 

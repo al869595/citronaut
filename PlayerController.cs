@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     //prefab to hold projectile script
     public Projectile laserPrefab;
 
-    //Check for lasers (only one laser at a time)
+    //check for lasers (only one laser at a time)
     private bool _laserActive;
     private Vector3 startPosition; //store start position
 
